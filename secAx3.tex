@@ -1,0 +1,223 @@
+\section{環と体のまとめ}
+
+本書では，本書で利用される範囲で，環と体の基本事項をまとめる．
+内容はいずれも代数学の最初に登場するものである．証明や詳しい説明は代数学の
+教科書（たとえば，[1,2,3]）を参照して欲しい．以下では[1]での参照箇所を書いておいた．
+
+\subsection{整数の合同}
+
+この項では，整数と整数の合同についてまとめておく（[1]1.3節）．
+
+整数$a,b$に対して，$a$が$b$を割りきる，とは$b	=	qa$をみたす整数$q$が存在することであり，
+記号で$a	|	b$と書き表す．また，$a$が$b$を割り切ることを「$a$は$b$の\textbf{約数}（divisor）
+である」とは「$b$は$a$の\textbf{倍数}（multiple）である）である」とも表現する．
+$a$が$b$を割り切るなら$-a$も$b$を割り切るので，単に「$b$の約数」といったときには，
+正の約数を指す習慣であることに注意してほしい．
+
+2つの整数$a,b$に対して，$a$の約数であり同時に$b$の約数でもある自然数
+（$=$正の整数）$d$を，$a$と$b$の\textbf{公約数}（common divisor）と呼ぶ．
+$a$と$b$の公約数の中の最大のものを，$a$と$b$の\textbf{最大公約数}（greatest common divisor）
+と呼び，$\text{gcd}(a,b)$と書き表す．
+また，$\text{gcd}(a,b)	=	1$であることを，$a$と$b$は\textbf{互いに素}（prime to catch other）である，
+と表現する．自然数$d$が$a$と$b$の公約数であることと，$d$が$\text{gcd}(a,b)$の約数であること
+とは同値である．
+
+一般に$a,b$が整数で$a	>	0$であるとき，$b$を$a$で割る，という操作ができる．それは，
+具体的には
+\begin{equation}
+	b	=	qa	+	r	\quad	(\text{$q,r$は整数；$0	\leqq	r	<	a$})
+\label{eqAx71}
+\end{equation}
+と表すことで，(\ref{eqAx71})の$q,r$を，それぞれ，$b$を$a$で割ったときの\textbf{商}（quotient）と
+\textbf{余り}（remainder）と呼ぶ．（\ref{eqAx71}）の状況では
+$\text{gcd}(a,b)	=	\text{gcd}(r,a)$が成り立つことに注目して，
+（\ref{eqAx71}）のような割り算を繰り返して$\text{gcd}(a,b)$を求める方法がユークリッドの互除法である．
+ユークリッドの互除法によって，次の結果も証明できる．（[1]定理1.7）．
+
+\命題{A.23}
+整数$a,b$に対して$g	=	\text{gcd}(a,b)$とおく．このとき，$ax	+	by	=	g$をみたす
+整数$x,y$が存在する．
+
+次に，整数の素因数分解の一意性について述べよう．まず，自然数$p$が\textbf{素数}
+（prime number）であるとは，$p	\ne	1$であり$p$の約数が$1$と$p$だけであることをいう．
+また，$2$以上の自然数で素数でないものを\textbf{合成数}（composite number）と呼ぶ．
+素数で偶数であるものは$2$だけなので，$2$以上の素数を指すときに\textbf{奇素数}（odd prime）
+という言葉が使われる．合成数を2つの約数の積で表す，という操作を繰り返せば，自然数$n$が
+\begin{equation}
+	n	=	p_1^{e_1}	\cdots	p_t^{e_t}	=	\prod_{i=1}^t	p_i^{e_i}
+	\quad
+	\text{($p_1,	\cdots	,	p_t$は相異なる素数;$e_1,	\cdots	,	e_t	\geqq	1$)}
+\label{eqAx72}
+\end{equation}
+と表わされることが分かる．さらに，（\ref{eqAx72}）という表示が積の順序を除いて
+一意的であることも示される．これをまとめて述べると，次のようになる（[1]定理1.13）．
+
+\命題{A.24}
+任意の自然数は素数の積として表わされ，その表示は積の順序を除いて一意的である．
+すなわち，自然数$n$は（\ref{eqAx72}）のように表わされ，（\ref{eqAx72}）に現れる
+素数$p_1,	\cdots	,	p_t$と対応するべき指数$e_1,	\cdots	,	e_t$は$n$によって1通り
+に定まる（ただし，掛け算の順序は定まらない）．
+
+次に，整数の合同について述べる．自然数$m$と整数$a,b$があるとする．
+このとき，$a$と$b$が$m$を\textbf{法}（modulus）として\textbf{合同}（congruent）である，とは
+\begin{equation}
+	\text{$a-b$が$m$の倍数である（記号で書けば，$m|(a-b)$）}
+\label{eqAx73}
+\end{equation}
+であることをいい，このことを記号で
+\[
+	a	\equiv	b	\:	(	\text{mod}	m	)
+\]
+と書き表す．したがって，特に
+\[
+	a	\equiv	\:	(	\text{mod}	m	)	\:	\Leftrightarrow	\:	m	|	a	\:	(	\text{$a$は$m$で割り切れる}
+\]
+となっている．また，記号
+\[
+	a	\not	\equiv	\:	(\text{mod}	m	)
+\]
+は$	a	\equiv	b	(	\text{mod}	m	)	$の否定を表す．$m$による割り算の余りをとること
+（(\ref{eqAx71})参照）により，整数$a$に対して
+\[
+	a	\equiv	r	\:	(	\text{mod}	m	)	\:	\text{かつ}	\:	0	\leqq	r	<	m
+\]
+を満たす整数$r$がた唯一定まることがわかる．整数には和と積の演算があるが，整数の合同は
+これらの演算とうまく“調和”していることが示される（[1]1.3.2項）．
+
+法$m$を1つ固定して考えるとき，$m$を法として整数$a$と合同な整数全体の集合を
+「$a$の定める（法$m$に関する）\textbf{合同類}（congruence class)」と呼び，
+$a	+	m\Z$または$\overline{a}$という記号で表す．つまり
+\[
+	a	+	m	\Z	=	\overline{a}
+=	\{	b	\in	\Z	\:	|	\:	b	\equiv	a		\:	(\text{mod }	m)	\}	
+=	\{	a	+	mk	\:	|	\:	k	\in	\Z	\}
+\]
+である．上にのべたとことにより，任意の$a	\in	\Z$について
+\[
+	r	+	m	\Z	=	a	+		m	\Z	\quad	\text{かつ}	\quad	0	\leqq	r	\leqq	m	-1
+\]
+をみたす$r	\in	\Z$が唯一さだまる．また，法$m$に関する合同類全体の集合を$\Z	/	m	\Z$
+と書き表す．つまり
+\begin{equation}
+	\Z	/	m	\Z	=	\{	\:	a	+	m	\Z	\:	|	a	\in	\Z	\:	\}
+							=	\{	\:	\overline{a}	\:	|	a	\in	\Z	\:	\}
+							=	\{	\:	\overline{0},	\overline{1}	,	\cdots,	\overline{m-1}	\:	\}
+\label{eqAx74}
+\end{equation}
+であり，$\Z	/	m	\Z$は$m$個の元からなる集合である．さらに，$\Z		/	m	\Z$には自然に和と積が
+定義されることが確かめられる（[1]1.3.2項参照）．
+
+合同式と積の関係については，つぎの命題A.24が重要である．([1]命題1.8(2)および[1]定理1.18）．
+
+\命題{A.25}
+$m$は自然数とする．
+
+\begin{list}{}{}
+	\item	(1)	整数$a,b$が$ab	\equiv	0	\:	(\text{mod } m )$をみたすとする．このとき，$\text{gcd}(a,m)	=	1$ならば\footnote{$a$と$m$が互いに素ならば}，$b	\equiv	0	\:	(\text{mod }m )$が成り立つ\footnote{$b$は$m$で割り切れる}．
+	\item	(2)	整数$a$に対して
+			\begin{equation}
+				ax	\equiv	1	\quad	(\text{mod }	m	)	
+			\label{eqAx75}
+			\end{equation}
+	をみたす整数$x$が存在するための必要十分条件は，$\text{gcd	}	(a,m)	=	1$が成り立つことである．
+\end{list}
+前に述べたように，任意の整数は$m$を法として$0,1,	\cdots	m	-1$のどれかに合同であるが，
+これらの数のうち命題A.25(2)の条件をみたすもの（つまり，$m$と互いに素であるもの）の個数を
+$\varphi(m)$と表わす（ただし，$\varphi(1)	=1$とする）．つまり
+\[
+	\varphi(m)	=	|	\{	\:	a	\in	\Z	\:	|	\:	0	\leqq	0	\leqq	m-1	\quad	\text{かつ}	\quad	\text{gcd }(a,m)	=1	\:	\}
+\]
+であり，$\varphi(m)$は\textbf{オイラー関数}（Euler's function）と呼ばれている．素因数分解を使って
+オイラー関数を表わす公式が知られている．それは，自然数$n$が（\ref{eqAx72}）の形で素因数分解されている
+ときに
+\[
+	\varphi(n)	=	p_1^{e_1	-	1}(p_1	-	1)	\cdots
+								p_t^{e_t	-	1}(p_t	-	1)
+							=	
+\]
+と表される，という結果である（[1] 命題 1.24）．
+
+合同式を考えるときの法が素数である場合を詳しくみていこう．以下では，
+$p$は素数を表すとする．この場合には，次の結果が成り立っている（[1]1.3.4 項）．
+特に，命題 A.26 (3) は\textbf{フェルマーの小定理} (Fermat's little theorem）と呼ばれている．（
+[1] 定理 1.29）．
+
+\命題{A.26}
+$p$を素数とし，$a,b$は整数とする．
+\begin{list}{}{}
+	\item	(1)	$ab	\equiv	0	\:(\text{mod } p )$ならば，$a	\equiv	0	\:	(\text{mod } p)$または$b	\equiv	0	\: (\text{mod } p)$が成り立つ．
+	\item	(2)	$	a	\not\equiv	0	\:(\text{mod } p )$ならば，$ax	\equiv	1	\:	(	\text{mod } p )$をみたす整数$x$が存在する．
+	\item	(3)	$	a	\not\equiv	0	\:(\text{mod } p )$ならば，$a^{p-1}	\equiv	1	\:	(\text{mod } p)$が成り立つ．
+	\item	(4)	$	\varphi(p)	=	p-1$である．
+\end{list}
+
+$	a	\not\equiv	0	\:	(\text{mod } p )$をみたす整数$a$に対して，$a^k	\equiv	1	\:	(\text{mod } p)$を
+みたす自然数の中で最小のものを「（$p$を法とする）$a$の\textbf{位数}（order）」と呼ぶ．
+フェルマーの小定理を使った簡単な議論で．$a$の位数が$p-1$の約数であることがわかる
+（[1]命題1.31）ので，位数の取りうる最大の値は$p-1$である．整数$a$の$p$を法とする位数が$p-1$に
+等しいとき，$a$を$p$を法とする原始根（primitive root）と呼ぶ．次の結果が成り立つ
+（[1]定理1.33）．
+
+\命題{A.27}
+素数$p$仁対して，$p$を法とする原始根が，（すくなくとも1つ）存在する．
+\■
+
+原始根は非常に便利なもので，合同式に関する計算に活用される．
+
+命題A.27を群の言葉で表現すれば，「$(\Z / p \Z)^{\times}$は巡回群である」ということになる．
+
+素数を法とする合同式については，平方剰余の考察が面白い．それは整数$a$に対して，
+方程式
+\begin{equation}
+	x^2	\equiv	\:	(\text{mod } p) \; (\text{$x$は整数})
+\label{Ax76}
+\end{equation}
+に解があるかどうかを考えるもので，（\ref{eqAx76}）に解があるとき，
+$a$は$p$を法とする\textbf{平方剰余}（quadratic residue）であるという．
+また，平方剰余でない$a$を\textbf{平方非剰余}（quadratic non-residue）と呼ぶ．平方剰余の考察では
+\[
+	\left(	\frac{a}{p}
+	\right)
+	=
+	\begin{cases}
+		\:	0,	&	a	\equiv			0	\:	(\text{mod } p)	\text{のとき}	\\
+		\:	1,	&	a	\not\equiv	0	\:	(\text{mod } p) \text{で$a$が平方剰余のとき}	\\
+		\:	-1,	&	a	\not\equiv	0	\:	(\text{mod } p) \text{で$a$が平方非剰余のとき}	\\
+	\end{cases}
+\]
+によって定義される\textbf{ルジャンドル記号}（Legendre symbol）$\displaystyle	\left(\frac{a}{p}	\right)$が有用である．
+ルジャンドル記号は，次のようなきれいな性質をもつ．
+
+\命題{A.28}
+$p$は奇素数であるとし，$a,b$を整数とする．
+\begin{list}{}{}
+	\item	(1)	$a	\equiv	b	\:	(	\text{mod	}	p)$ならば$\displaystyle	\left(	\frac{a}{p}\right)	=	\left(\frac{b}{p}	\right)$である．
+	\item	(2)	（乗法性）
+\[
+	\left(\frac{ab}{p}\right)	=	\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)
+\]
+が成り立つ．
+	\item	(3)	（オイラーの基準）
+\[
+	\left(\frac{a}{p}\right)	\equiv	a^{\frac{p-1}{2}}	\quad	(\text{mod } p)
+\]
+が成り立つ．
+	\item	(4)	整数$-1$に関するルジャンドル記号の値は
+\[
+	\left(\frac{-1}{p}	\right)	=	(-1)^{\frac{p-1}{2}}
+=	\begin{cases}
+		\:	1,	&	p	\equiv	1	\:	(	\text{mod } 4)	\text{のとき}	\\
+		\:	-1,	&	p	\equiv	3	\:	(	\text{mod } 4)	\text{のとき}
+	\end{cases}
+\]
+\end{list}
+
+
+
+
+
+
+
+
+
+
